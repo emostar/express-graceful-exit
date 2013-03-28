@@ -1,2 +1,2 @@
 
-module.exports = require('./lib/graceful-restart')
+module.exports = require('./lib/graceful-exit')
