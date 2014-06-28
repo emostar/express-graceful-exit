@@ -35,7 +35,7 @@ This function will cleanup the server and get it ready for shutting down. It can
 // Example for naught
 process.on('message', function(message) {
   if (message === 'shutdown') {
-    gracefulExit.gracefulExitHandler(app, server {
+    gracefulExit.gracefulExitHandler(app, server, {
         socketio: app.settings.socketio
     })
   }
