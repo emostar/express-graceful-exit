@@ -58,6 +58,7 @@ The following options are available:
 * __socketio:__ An instance of socket.io, that will close all open socket.io connections (default none)
 * __exitProcess:__ Instructs this module to call process.exit it is done (default true).
 * __callback:__ Function that will be called with the "exit" status code once closing express is done (for good or worse). Should be use in conjunction with exitProcess=false, where it is the responsilbity of the caller to handle process shutdown.
+* __force:__ Instructs the module to forcibly close sockets once the suicide timeout elapses. Requires that gracefulExit.init(server) be called when initializing the HTTP server (default: false)
 
 ## Details
 
