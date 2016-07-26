@@ -67,12 +67,12 @@ To gracefully exit this module will do the following things:
 1. Close the server so no new connections get accepted
 2. Mark that the server will gracefully exit, so if a connection that is using the Keep-Alive header is still active, it will be told to close the connection. The HTTP status code of 502 is returned, so nginx, ELB, etc will try again with a working server.
 3. If a socket.io instance is passed in the options, it enumerates all connected clients and disconnects them. The client should have code to reconnect on disconnect.
-5. Once all connected clients are disconnected, the server exits with an error code of 0.
-6. If there are still some remaining connections after the `suicideTimeout`, the server ungracefully exits with an error code of 1.
+4. Once all connected clients are disconnected, the server exits with an error code of 0.
+5. If there are still some remaining connections after the `suicideTimeout`, the server ungracefully exits with an error code of 1.
 
 ## Getting zero downtime deploys
 
 This module does not give you zero downtime deploys automatically, but provides a server that is capable of exiting gracefully, which can then be used by a module like naught to provide zero downtime deploys.
 
 #### Author: [Jon Keating](http://twitter.com/emostar)
-
+#### Maintainer: [Ivo Havener](https://github.com/ivolucien)
