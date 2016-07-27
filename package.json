@@ -1,7 +1,8 @@
 {
   "name": "express-graceful-exit",
-  "version": "0.1.0",
-  "description": "Allow express to support graceful exits to achieve zero downtime deploys",
+  "version": "0.2.1",
+  "description": "Allow graceful exits for express apps, supporting zero downtime deploys",
+  "keywords": ["express", "graceful", "exit", "shutdown", "clean", "tidy"],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,8 +10,11 @@
   "repository": "git://github.com/mathrawka/express-graceful-exit.git",
   "homepage": "https://github.com/mathrawka/express-graceful-exit",
   "author": "Jon Keating <jon@licq.org>",
+  "contributors": [
+    "Ivo Havener <ivolucien@gmail.com>"
+  ],
   "license": "MIT",
   "dependencies": {
-    "underscore": "~1.4.4"
+    "underscore": "^1.4.4"
   }
 }
