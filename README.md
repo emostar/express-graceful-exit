@@ -11,6 +11,10 @@ $ cd /path/to/your/project
 $ npm install express-graceful-exit
 ````
 
+## Compatibility
+
+v0.X.X versions are backwards API compatible, with the caveate that process exit is called in a `setTimeout` block from v0.2.0 forward, so the timing is slightly different between v0.1.0 to v0.2.x+.
+
 ## Usage
 
 The following two components must both be used to enable fully graceful exits.
