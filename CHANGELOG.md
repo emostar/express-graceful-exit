@@ -1,3 +1,14 @@
+0.3.2 / 2016-08/05
+==================
+
+  * Released version to npm
+  * This version entry, npm keeping me honest
+
+0.3.1 / 2016-08/05
+==================
+
+  * Doc format fixes
+
 0.3.0 / 2016-08/05
 ==================
 
