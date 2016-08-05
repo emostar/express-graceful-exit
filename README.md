@@ -56,27 +56,30 @@ There are no options available currently.
 
 The following options are available:
 
-Option  |  Description  |  Default
-------  |  -----------  |  -------
-__log__  |  Print status messages and errors to the logger  |  false.
-__logger__  |  Function that accepts a string to output a log message  |  console.log
-__callback__  |  Optional function that is called with the exit status code once express has shutdown, gracefully or not - use in conjunction with exitProcess=false, when the caller handles process shutdown  |  no-op
-__exitProcess__  |  If true, the module calls `process.exit()` when express has shutdown, gracefully or not  |  true
-__exitDelay__  |  How long to wait in the final internal callback (gracefulExitHandler or suicideTimeout) before calling process.exit, if exitProcess is true  |  10ms
-__suicideTimeout__  |  How long to wait before giving up on graceful shutdown, then returns exit code of 1  |  2m 10s (130s)
-__socketio__  |  An instance of `socket.io`, used to close all open connections after timeout  |  none
-__force__  |  Instructs the module to forcibly close sockets once the suicide timeout elapses. Requires that `gracefulExit.init(server)` be called when initializing the HTTP server  |  false
+Option                    |  Description                                    |  Default
+:------------------------ |:----------------------------------------------- |: ---------
+__log__                   |  Print status messages and errors to the logger |  false
+__logger__                |  Function that accepts a string to output a log <br> message  |  console.log                      
+__callback__              |  Optional function that is called with the exit <br> status code once express has shutdown, <br> gracefully or not - use in conjunction with  <br> exitProcess=false, when the caller handles <br> process shutdown  |  no-op 
+__exitProcess__           |  If true, the module calls `process.exit()` when<br> express has shutdown, gracefully or not       |  true
+__exitDelay__             |  How long to wait in the final internal callback<br> (gracefulExitHandler or suicideTimeout) <br> before calling `process.exit`, if that's set  |  10ms
+__suicideTimeout__ &nbsp; |  How long to wait before giving up on graceful  <br> shutdown, then returns exit code of 1         |  2m 10s (130s)
+__socketio__              |  An instance of `socket.io`, used to close all  <br> open connections after timeout                |  none
+__force__                 |  Instructs the module to forcibly close sockets <br> once the suicide timeout elapses. <br> You must call `gracefulExit.init(server)` when <br> initializing the HTTP server                       |  false
 
 ## Details
 
 To gracefully exit this module will do the following things:
 
 1. Close the http server so no new connections are accepted
-2. Mark that the server will gracefully exit, so if a connection that is using the Keep-Alive header is still active, it will be told to close the connection. The HTTP status code of 502 is returned, so nginx, ELB, etc will try again with a working server
-3. If a socket.io instance is passed in the options, it enumerates all connected clients and disconnects them. The client should have code to reconnect on disconnect
-4a. Once all connected clients are disconnected, the exit handler returns 0
-4b. OR If there are any remaining connections after `suicideTimeout` ms, the handler returns 1
-5. After either 4a or 4b, if exitProcess is set to true, it waits exitDelay ms and calls process.exit
+2. Mark that the server will gracefully exit, so if a connection that is using the Keep-Alive header is still active, it will be told to close the connection  
+The HTTP status code of 502 is returned, so nginx, ELB, etc will try again with a working server
+3. If a socket.io instance is passed in the options, it enumerates all connected clients and disconnects them  
+The client should have code to reconnect on disconnect
+4. Server fully disconnects or the hard exit timer runs
+    1. Once all connected clients are disconnected, the exit handler returns `0`
+    2. OR If there are any remaining connections after `suicideTimeout` ms, the handler returns `1`
+5. In either case, if exitProcess is set to true the exit handler waits exitDelay ms and calls `process.exit`
 
 ## Zero Downtime Deploys
 
@@ -84,3 +87,4 @@ This module does not give you zero downtime deploys on its own. It enables the h
 
 #### Author: [Jon Keating](http://twitter.com/emostar)
 #### Maintainer: [Ivo Havener](https://github.com/ivolucien)
+
