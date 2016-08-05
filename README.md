@@ -56,16 +56,16 @@ There are no options available currently.
 
 The following options are available:
 
-| Option                   |  Description                                    |  Default   |
-|:------------------------ |:----------------------------------------------- |: --------- |
-| __log__                   |  Print status messages and errors to the logger |  false  |
-| __logger__                |  Function that accepts a string to output a log <br> message  |  console.log  |
-| __callback__              |  Optional function that is called with the exit <br> status code once express has shutdown, <br> gracefully or not - use in conjunction with  <br> exitProcess=false, when the caller handles <br> process shutdown  |  no-op  | 
-| __exitProcess__           |  If true, the module calls `process.exit()` when<br> express has shutdown, gracefully or not       |  true  |
-| __exitDelay__             |  How long to wait in the final internal callback<br> (gracefulExitHandler or suicideTimeout) <br> before calling `process.exit`, if that's set  |  10ms  |
-| __suicideTimeout__ &nbsp; |  How long to wait before giving up on graceful  <br> shutdown, then returns exit code of 1         |  2m 10s (130s)  |
-| __socketio__              |  An instance of `socket.io`, used to close all  <br> open connections after timeout                |  none  |
-| __force__                 |  Instructs the module to forcibly close sockets <br> once the suicide timeout elapses. <br> You must call `gracefulExit.init(server)` when <br> initializing the HTTP server                       |  false  |
+ Option              |  Description                                     |  Default
+ :------------------ |  :---------------------------------------------- |  :-------
+ __log__             |  Print status messages and errors to the logger  |  false
+ __logger__          |  Function that accepts a string to output a log message  |  console.log
+ __callback__        |  Optional function that is called with the exit status code once express has shutdown, gracefully or not <br> Use in conjunction with  `exitProcess: false` when the caller handles process shutdown  |  no-op
+ __exitProcess__     |  If true, the module calls `process.exit()` when express has shutdown, gracefully or not  |  true
+ __exitDelay__       |  Wait timer duration in the final internal callback (triggered either by gracefulExitHandler or the suicideTimeout) if `exitProcess: true`  |  10ms
+ __suicideTimeout__  |  How long to wait before giving up on graceful  shutdown, then returns exit code of 1  |  2m 10s (130s)
+ __socketio__        |  An instance of `socket.io`, used to close all  open connections after timeout  |  none
+ __force__           |  Instructs the module to forcibly close sockets once the suicide timeout elapses. <br> For this option to work you must call `gracefulExit.init(server)` when initializing the HTTP server  |  false
 
 ## Details
 
