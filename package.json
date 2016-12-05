@@ -1,6 +1,6 @@
 {
   "name": "express-graceful-exit",
-  "version": "1.0.0-gogap",
+  "version": "1.0.0",
   "description": "Allow graceful exits for express apps, supporting zero downtime deploys",
   "keywords": [
     "express",
