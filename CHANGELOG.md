@@ -1,3 +1,8 @@
+0.4.0 / 2017-03-19
+==================
+
+  * Support disconnect for more socket.io versions
+
 0.3.2 / 2016-08/05
 ==================
 
