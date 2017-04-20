@@ -65,7 +65,9 @@ The following options are available:
  __exitDelay__       |  Wait timer duration in the final internal callback (triggered either by gracefulExitHandler or the suicideTimeout) if `exitProcess: true`  |  10ms
  __suicideTimeout__  |  How long to wait before giving up on graceful  shutdown, then returns exit code of 1  |  2m 10s (130s)
  __socketio__        |  An instance of `socket.io`, used to close all  open connections after timeout  |  none
- __force__           |  Instructs the module to forcibly close sockets once the suicide timeout elapses. <br> For this option to work you must call `gracefulExit.init(server)` when initializing the HTTP server  |  false
+ __force__           |  Instructs the module to forcibly close sockets once the suicide timeout elapses. <br> For this option to work you must call
+ __idleCheckInterval__   |  Check for for idle sockets and close them at that interval while shutting down | 100ms (.1s)
+ `gracefulExit.init(server)` when initializing the HTTP server  |  false
 
 ## Details
 
