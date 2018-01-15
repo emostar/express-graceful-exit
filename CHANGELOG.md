@@ -1,3 +1,8 @@
+0.4.1 / 2018-01-15
+==================
+
+  * Name anonymous functions for call stack clarity
+
 0.4.0 / 2017-03-19
 ==================
 
