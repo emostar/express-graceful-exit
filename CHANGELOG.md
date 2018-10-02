@@ -1,3 +1,14 @@
+0.4.2 / 2018-09-30
+==================
+
+  * Fix undefined socket array error
+  * Use intended exit code upon forced exit after timeout
+
+0.4.1 / 2018-01-15
+==================
+
+  * Names for anonymous functions, for better stack traces
+
 0.4.0 / 2017-03-19
 ==================
 
