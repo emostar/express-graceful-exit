@@ -1,3 +1,15 @@
+0.5.0-rc.1 / 2019-10-15
+=======================
+Thank you hhunt for finding this bug, as well as for the fix PR and test code
+
+  Issue #14 fixes, and configuration options for an improved graceful exit:
+  * Fix side effects from handling of rejected incoming requests
+    * Connections are no longer closed prematurely during request processing
+    * Rejected requests during graceful exit end cleanly
+  * Return connection close header with response(s), if any
+  * Add option to perform one last request per connection
+  * Add option to respond with default or custom http error for rejected requests
+
 0.4.2 / 2018-09-30
 ==================
 

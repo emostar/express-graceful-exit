@@ -1,6 +1,6 @@
 {
   "name": "express-graceful-exit",
-  "version": "0.4.2",
+  "version": "0.5.0-rc.1",
   "description": "Allow graceful exits for express apps, supporting zero downtime deploys",
   "keywords": [
     "express",
