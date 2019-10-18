@@ -1,3 +1,9 @@
+0.5.0-rc.2 / 2019-10-18
+=======================
+Thank you hhunt for additional testing and the fix PR
+
+  * Fix errors in new option to handle a last request, including a crasher
+
 0.5.0-rc.1 / 2019-10-15
 =======================
 Thank you hhunt for finding this bug, as well as for the fix PR and test code
