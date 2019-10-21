@@ -1,3 +1,7 @@
+0.5.0 / 2019-10-21
+==================
+Changes reflected in the below release candidate versions
+
 0.5.0-rc.2 / 2019-10-18
 =======================
 Thank you hhunt for additional testing and the fix PR
