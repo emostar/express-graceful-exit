@@ -68,8 +68,8 @@ The following options are available:
  __log__             |  Print status messages and errors to the logger  |  false
  __logger__          |  Function that accepts a string to output a log message  |  console.log
  __callback__        |  Optional function that is called with the exit status code once express has shutdown, gracefully or not <br> Use in conjunction with  `exitProcess: false` when the caller handles process shutdown  |  no-op
- __performLastRequest__ |  Process the first request received per connection after exit starts, and include a connection close header for callers and load balancers. <br> `false` is the existing behavior, deprecated as of v0.5.0 |  false
- __errorDuringExit__ |  Respond to incoming requests with an error instead of silently dropping them. <br> `false` is the existing behavior, deprecated as of v0.5.0  |  false
+ __performLastRequest__ |  Process the first request received per connection after exit starts, and include a connection close header in the response for the caller and/or load balancer. <br> The current default is `false`, but will default to `true` in the next major release, `false` is deprecated as of v0.5.0 |  false, **true is recommended**
+ __errorDuringExit__ |  When requests are refused during graceful exit, respond with an error instead of silently dropping them. <br> The current default is `false`, but will default to `true` in the next major release, `false` is deprecated as of v0.5.0 |  false, **true is recommended**
  __getRejectionError__  |  Function returning rejection error for incoming requests during graceful exit | `function () { return new Error('Server unavailable, no new requests accepted during shutdown') }`
  __exitProcess__      |  If true, the module calls `process.exit()` when express has shutdown, gracefully or not  |  true
  __exitDelay__       |  Wait timer duration in the final internal callback (triggered either by gracefulExitHandler or the hard exit handler) if `exitProcess: true`  |  10ms
@@ -82,7 +82,7 @@ The following options are available:
 To gracefully exit this module does the following things:
 
 1. Closes the http server so no new connections are accepted
-2. Sets connection close header for Keep-Alive connections, if configured for responses</br> The HTTP status code of 502 is returned, so nginx, ELB, etc will try with an active server</br> If `errorDuringExit` and/or `performLastRequest` are set to true, a response is sent with a `Connection: close` header
+2. Sets connection close header for Keep-Alive connections, if configured for responses</br> If `errorDuringExit` is true, HTTP status code 502 is returned by default, so nginx, ELB, etc will resend to an active server</br> If `errorDuringExit` and/or `performLastRequest` are set to true, a response is sent with a `Connection: close` header
 3. If a socket.io instance is passed in the options, all connected clients are immediately disconnected (socket.io v0.X through v1.4.x support)</br> The client should have code to reconnect on disconnect
 4. Once the server fully disconnects or the hard exit timer runs
     1. If all in-flight requests have resolved and/or disconnected, the exit handler returns `0`
