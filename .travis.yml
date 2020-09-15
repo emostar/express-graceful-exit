@@ -16,8 +16,7 @@ before_install:
 install:
   - npm install --no-optional
 
-script:
-  npm test
+script: skip
 
 jobs:
   include:
