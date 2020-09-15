@@ -1,5 +1,5 @@
 {
-  "name": "express-graceful-exit",
+  "name": "@bp/express-graceful-exit",
   "version": "0.0.0",
   "description": "Allow express to support graceful exits to achieve zero downtime deploys",
   "main": "index.js",
