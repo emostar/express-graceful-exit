@@ -1,0 +1,41 @@
+sudo: true
+dist: trusty
+group: travis_latest
+language: node_js
+node_js:
+  - 8.9.0
+  - 12
+
+cache:
+  directories:
+    - ./node_modules
+
+before_install:
+  - curl -s -u ${ARTIFACTORY_USER}:${ARTIFACTORY_PASS} ${ARTIFACTORY_URL}/artifactory/api/npm/npm-local/auth/bp > .npmrc
+
+install:
+  - npm install --no-optional
+
+script: skip
+
+jobs:
+  include:
+    - stage: deploy
+      node_js:
+        - 8.9.0
+      script: skip
+      if: (tag =~ ^v)
+      before_deploy:
+        - npm version -no-git-tag-version ${TRAVIS_TAG}
+      deploy:
+        - provider: script
+          script: npm publish --registry ${ARTIFACTORY_URL}/artifactory/api/npm/npm-local/
+          skip_cleanup: true
+          on:
+            tags: true
+
+after_script:
+  - rm -f .npmrc
+
+after_failure:
+  - rm -f .npmrc
