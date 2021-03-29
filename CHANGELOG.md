@@ -1,3 +1,8 @@
+0.5.2 / 2021-03-29
+==================
+
+ * Fix registry entry
+
 0.5.1 / 2021-03-29
 ==================
 Thank you @techmunk and @kevynb for the typescript work
