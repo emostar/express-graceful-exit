@@ -1,3 +1,10 @@
+0.5.1 / 2021-03-29
+==================
+Thank you @techmunk and @kevynb for the typescript work
+
+  * Typescript definitions
+  * Security patch addressing vulnerability with update to underscore version
+
 0.5.0 / 2019-10-21
 ==================
 Changes reflected in the below release candidate versions
