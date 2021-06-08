@@ -1,7 +1,7 @@
 import { Server } from 'net'
 import { Express, NextFunction, Request, RequestHandler, Response } from 'express'
 
-namespace GracefulExit {
+declare namespace GracefulExit {
   interface Configuration {
     errorDuringExit?: boolean
     performLastRequest?: boolean
