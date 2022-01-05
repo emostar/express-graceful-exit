@@ -11,6 +11,6 @@
   "author": "Jon Keating <jon@licq.org>",
   "license": "MIT",
   "dependencies": {
-    "underscore": "~1.4.4"
+    "lodash": "4.17.21"
   }
 }
