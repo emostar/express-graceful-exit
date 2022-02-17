@@ -13,6 +13,10 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "clean": "tsc --build tsconfig.json --clean",
+    "lint": "eslint ./ --ext .ts --ext .tsx",
+    "lint-and-fix": "eslint ./ --ext .ts --ext .tsx --fix",
     "test": "echo \"Error: just manually tested, so far\" && exit 1"
   },
   "repository": "git://github.com/mathrawka/express-graceful-exit.git",
@@ -23,6 +27,29 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "underscore": "^1.12.1"
+    "underscore": "^1.12.1",
+    "express": "^4.0.0"
+  },
+  "peerDependencies": {
+    "express": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.0.0",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^14.0.0",
+    "@types/sinon": "^10.0.4",
+    "@types/underscore": "^1.11.4",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.2.0",
+    "jest": "^26.4.2",
+    "nock": "^13.1.4",
+    "prettier": "^2.2.1",
+    "sinon": "^11.1.2",
+    "ts-jest": "^26.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.5.5"
   }
 }
