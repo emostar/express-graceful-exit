@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+*.tsbuildinfo
+Dockerfile
+docker-compose.yaml
+.github/
+.git/
+.vscode/
+.gitignore
+README.md

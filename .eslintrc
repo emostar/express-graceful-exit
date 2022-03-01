@@ -1,0 +1,32 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "no-console": 1, // Means warning
+    "prettier/prettier": 2, // Means error
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-floating-promises": ["error"],
+    "@typescript-eslint/no-misused-promises": ["error"],
+    "@typescript-eslint/promise-function-async": ["error"],
+    "@typescript-eslint/require-await": ["error"],
+    // note you must disable the base rule as it can report incorrect errors
+    "no-return-await": "off",
+    "@typescript-eslint/return-await": ["error"],
+    // Don't allow awaiting non-Promises
+    "@typescript-eslint/await-thenable": "error"
+  },
+  "ignorePatterns": ["dist", "cdk.out"]
+}
