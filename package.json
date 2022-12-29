@@ -24,5 +24,15 @@
   "license": "MIT",
   "dependencies": {
     "underscore": "^1.12.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/express-serve-static-core": "^4.16.0",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint": "^8.27.0",
+    "express": "^4.17.1",
+    "typescript": "^4.8.4"
   }
 }
